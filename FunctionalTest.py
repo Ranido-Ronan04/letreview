@@ -23,8 +23,8 @@ class PageTest(unittest.TestCase):
 		self.browser.get('http://localhost:8000')
 		"""self.assertIn('KPOP Group', self.browser.title)"""
 		headerText = self.browser.find_element_by_tag_name('h1').text
-		"""self.assertIn('Group', headerText)
-		inputbox = self.browser.find_element_by_id('idNewEntry')
+		self.assertIn('Group', headerText)
+		inputbox = self.browser.find_element_by_id('idNewEntry').send_keys("BTS")
 		self.assertEqual(inputbox.get_attribute('placeholder'),'Group name you have seen.')
 		inputbox.send_keys('BTS')
 		inputbox.send_keys(Keys.ENTER)
