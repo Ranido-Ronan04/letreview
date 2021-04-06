@@ -11,10 +11,10 @@ class HomePageTest(TestCase):
 		self.assertEqual(found.func, MainPage)
 
 	#def test_mainpage_return_correct_view(self):
-		#request = HttpRequest()
-		#response = MainPage(request)
-		#html = response.content.decode('utf8')
-		#self.assertTrue(html.startswitch('<html>'))
-		#self.assertIn('<title>My WEB</title>', html)
-		#self.assertTrue(html.endswitch('</html>'))
+	#	request = HttpRequest()
+	#	response = MainPage(request)
+	#	html = response.content.decode('utf8')
+	#	self.assertTrue(html.startswitch('<html>'))
+	#	self.assertIn('<title>My WEB</title>', html)
+	#	self.assertTrue(html.endswitch('</html>'))
 
