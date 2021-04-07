@@ -21,7 +21,7 @@ class PageTest(unittest.TestCase):
 
 	def test_start_list_and_retrieve_it(self):
 		self.browser.get('http://localhost:8000')
-		"""self.assertIn('KPOP Group', self.browser.title)"""
+		self.assertIn('Profile', self.browser.title)
 		headerText = self.browser.find_element_by_tag_name('h1').text
 		self.assertIn('Profile of Student', headerText)
 		inputbox = self.browser.find_element_by_id('newEntry1')
@@ -39,6 +39,7 @@ class PageTest(unittest.TestCase):
 		inputbox.send_keys('TUPC - 18 - 0092')
 		inputbox.send_keys(Keys.ENTER)
 		time.sleep(1)
+		
 		#table = self.browser.find_element_by_id('idListTable')
 		#rows = table.find_element_by_tag_name('tr')
 		#self.assertTrue(any(row.text == '1:BTS'))
