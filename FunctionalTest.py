@@ -16,7 +16,7 @@ class PageTest(unittest.TestCase):
 
 	def test_browser_test(self):
 		"""self.browser.get('http://localhost:8000')
-		self.assertIn('BTS', self.browser.title)"""
+		self.assertIn('Profile', self.browser.title)"""
 		#self.fail('Finish the test!')
 
 	def test_start_list_and_retrieve_it(self):
