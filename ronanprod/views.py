@@ -12,10 +12,10 @@ def Mainpage(request):
 		mname = request.POST['mname']
 		lname = request.POST['lname']
 		ename = request.POST['ename']
-		email = request.POST['email']
-		password = request.POST['password']
+		email = request.POST['emails']
+		password = request.POST['password1']
 		gender = request.POST['gender']
-		submit = request.POST['submit']
+		submit = request.POST['submit1']
 
 		
 		yey = Item()
