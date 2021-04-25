@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LET REVIEWER CENTER</title>
+</head>
+<style>
+table, td, th{
+  border: 2px solid teal;
+  border-collapse: collapse;
+}
+</style>
+<body style="background-color: #e7c9ca;">
+<h1 style="color: blacks; font-family: Times New Roman, Times, serif; text-align: center; font-size: 75px; text-shadow: 4px 4px slategray;">INFORMATION</h1>
+
+<table style="width:100%">
+  <tr>
+  	
+    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>First Name</b></th>
+    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Middle Name</b></th>
+    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Last Name</b></th>
+    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Extension Name</b></th>
+    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Email</b></th>
+    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>New Password</b></th>
+    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Gender</b></th>
+    </tr>
+<div class="yey">
+	{% for yey in yey %}
+	<div class="yey">
+
+    <tr>
+    
+    <td><b style="color: black;">{{ forloop.counter }}:{{ yey.fname }}</b></td>
+    <td><b style="color: black;">{{ yey.mname }}</b></td>
+    <td><b style="color: black;">{{ yey.lname }}</b></td>
+    <td><b style="color: black;">{{ yey.ename}}</b></td>
+    <td><b style="color: black;">{{ yey.email }}</b></td>
+    <td><b style="color: black;">{{ yey.password }}</b></td>
+    <td><b style="color: black;">{{ yey.gender }}</b></td>
+
+  </tr>
+
+
+</div>
+	{% endfor %}
+	</table>
+</body>
+</html>
+<!-- <body style=" background-color: gainsboro;">
+<h1 style="color: midnightblue; font-family: Times New Roman, Times, serif; text-align: center; font-size: 75px; text-shadow: 4px 4px black;">INFORMATION</h1>
+<div class="yey">
+	{% for yey in yey %}
+	<h2 style="border: 6px solid tomato; font-size: 15px">
+		<p>First Name: <i style="color: sienna"><ins>{{ yey.fname }}</ins></i></p>
+		<p>Middle Name: <i style="color: sienna"><ins>{{ yey.mname }}</ins></i></p>
+		<p>Last Name: <i style="color: sienna"><ins>{{ yey.lname }}</ins></i></p>
+		<p>Extension Name: <i style="color: sienna"><ins>{{ yey.ename }}</ins></i></p>
+		<p>Email: <i style="color: sienna"><ins>{{ yey.email }}</ins></i></p>
+		<p>New Password: <i style="color: sienna"><ins>{{ yey.password }}</ins></i></p>
+		<p>Gender: <i style="color: sienna"><ins>{{ yey.gender }}</ins></i></p>
+	</h2>
+
+</div>
+	{% endfor %}
+</body>
+</html> -->

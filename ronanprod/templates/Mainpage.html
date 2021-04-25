@@ -1,0 +1,45 @@
+<html>
+<title>LET REVIEWER CENTER</title>
+<body style="background: lightgrey; ">
+
+<div class="container">
+	<h1 style="color: brown; font-family: Times New Roman, Times, serif; font-size: 50px; text-shadow: 2px 2px black">Sign Up</h1>
+	<p>Please fill in this form to create an account.</p>
+	<hr>
+	<form class ="form" action="" method="post">
+	{% csrf_token %}
+
+		<label for="firstname"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">First Name:</b></label><br>
+		<input style="width: 15cm;"type="text" id="fname" placeholder="First Name" name="fname" required><br><br>
+
+		<label for="middlename"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Middle Name:</b></label><br>
+		<input style="width: 15cm;"type="text" id="mname" placeholder="Middle Name" name="mname"><br><br>
+
+		<label for="lastname"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Last Name:</b></label><br>
+		<input style="width: 15cm;"type="text" id="lname" placeholder="Last Name" name="lname" required><br><br>
+
+		<label for="extensionname"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Extension Name:</b></label><br>
+		<input style="width: 15cm;"type="text" id="ename" placeholder="(Sr., Jr., III)" name="ename"><br><br>
+
+		<label for="email"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Email:</b></label><br>
+		<input style="width: 15cm;"type="text" id="email" placeholder="Enter Email" name="email" required><br><br>
+		
+		<label for="psw"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Password:</b></label><br>
+		<input style="width: 15cm;"type="password" id="password" placeholder="New Password" name="password" required><br><br>
+
+		<label for="gender"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Gender:</b></label>
+		<select id="gender" name="gender">
+			<option value="Custom">Custom</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+        </select><br><br>
+		
+		<input type="button" class="cancelbtn" value="Cancel" id="submit" name="submit" style="color: red;">
+		<input type="submit" class="signupbtn" value="Sign Up" id="submit" name="submit" style="color: black;">
+
+	</form>
+</div>
+
+
+</body>
+</html>
