@@ -1,9 +1,14 @@
-from django.conf.urls import url
-from myWeb import views
+from django.contrib import admin
+from django.urls import path, include
+
+
 
 urlpatterns = [
-	url(r'^$', views.MainPage, name='mainpage.html'),
+	path('admin/', admin.site.urls),
+	path('', include('ronanprod.urls')),
 ]
+
+
 
 """ProdList URL Configuration
 
