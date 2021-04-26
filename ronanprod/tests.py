@@ -140,4 +140,7 @@ class ORM_save_item2(TestCase):
 		self.assertEqual(Item6.password, 'ronankyle')
 		self.assertEqual(Item7.gender, 'Male')
 
-		
+class Views(TestCase):
+	def test_mo_lang(self):
+		Item.objects.create(fname='fname', mname='mname', lname='lname', ename='ename', email='email', password='password', gender='gender')
+		response = self.client.get('/app/views.Mainpage/')
