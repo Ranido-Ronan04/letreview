@@ -1,6 +1,6 @@
 <html>
 <title>LET REVIEWER CENTER</title>
-<body style="background: lightgrey; ">
+<body style="background-image: linear-gradient(90deg, #43cea2, #185a9d)">
 
 <div class="container">
 	<h1 style="color: brown; font-family: Times New Roman, Times, serif; font-size: 50px; text-shadow: 2px 2px black">Sign Up</h1>
@@ -10,28 +10,28 @@
 	{% csrf_token %}
 
 		<label id="firstname"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">First Name:</b></label><br>
-		<input style="width: 15cm;"type="text" id="fname" placeholder="First Name" name="fname" required><br><br>
+		<input style="width: 15cm; background-color: lightgray; font-family: Times New Roman, Times, serif;"type="text" id="fname" placeholder="First Name" name="fname" required><br><br>
 
 		<label id="middlename"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Middle Name:</b></label><br>
-		<input style="width: 15cm;"type="text" id="mname" placeholder="Middle Name" name="mname"><br><br>
+		<input style="width: 15cm; background-color: lightgray; font-family: Times New Roman, Times, serif;"type="text" id="mname" placeholder="Middle Name" name="mname"><br><br>
 
 		<label id="lastname"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Last Name:</b></label><br>
-		<input style="width: 15cm;"type="text" id="lname" placeholder="Last Name" name="lname" required><br><br>
+		<input style="width: 15cm; background-color: lightgray; font-family: Times New Roman, Times, serif;"type="text" id="lname" placeholder="Last Name" name="lname" required><br><br>
 
 		<label id="extensionname"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Extension Name:</b></label><br>
-		<input style="width: 15cm;"type="text" id="ename" placeholder="(Sr., Jr., III)" name="ename"><br><br>
+		<input style="width: 15cm; background-color: lightgray; font-family: Times New Roman, Times, serif;"type="text" id="ename" placeholder="(Sr., Jr., III)" name="ename"><br><br>
 
 		<label id="email"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Email:</b></label><br>
-		<input style="width: 15cm;"type="text" id="emails" placeholder="Enter" name="emails" required><br><br>
+		<input style="width: 15cm; background-color: lightgray; font-family: Times New Roman, Times, serif;"type="text" id="emails" placeholder="Enter" name="emails" required><br><br>
 		
 		<label id="password"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Password:</b></label><br>
-		<input style="width: 15cm;"type="password" id="password1" placeholder="New Password" name="password1" required><br><br>
+		<input style="width: 15cm; background-color: lightgray; font-family: Times New Roman, Times, serif;"type="password" id="password1" placeholder="New Password" name="password1" required><br><br>
 
 		<label id="gender1"><b style="color: maroon; text-shadow: 1px 1px black; font-size: 25px;">Gender:</b></label>
 		<select id="gender" name="gender">
-			<option value="Custom" name="custom1" id="custom1">Custom</option>
-			<option value="Male" name="male1" id="male1">Male</option>
-			<option value="Female" name="female1" id="female1">Female</option>
+			<option value="Custom" name="custom1" id="custom1" style="font-family: Arial, Helvetica, sans-serif;">Custom</option>
+			<option value="Male" name="male1" id="male1" style="font-family: Arial, Helvetica, sans-serif;">Male</option>
+			<option value="Female" name="female1" id="female1" style="font-family: Arial, Helvetica, sans-serif;">Female</option>
         </select><br><br>
 		
 		<input type="button" class="cancelbtn" value="Cancel" id="submit" name="submit" style="color: red;">

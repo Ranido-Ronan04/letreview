@@ -9,35 +9,36 @@ table, td, th{
   border-collapse: collapse;
 }
 </style>
-<body style="background-color: #e7c9ca;">
+<body style="background-image: linear-gradient(90deg, red, yellow)">
 <h1 style="color: blacks; font-family: Times New Roman, Times, serif; text-align: center; font-size: 75px; text-shadow: 4px 4px slategray;">INFORMATION</h1>
 
-<table style="width:100%">
-  <tr>
-  	
-    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>First Name</b></th>
-    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Middle Name</b></th>
-    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Last Name</b></th>
-    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Extension Name</b></th>
-    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Email</b></th>
-    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>New Password</b></th>
-    <th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>Gender</b></th>
-    </tr>
+<table style="border-spacing: 1; border-collapse: collapse; background:white; border-radius:6px; overflow:hidden; width:75%; margin:0 auto;">
+	<thead style="height:80px;background:#FFED86; font-size:16px;">
+		<tr>
+  			<th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black"><b>First Name</b></th>
+  			<th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black;"><b>Middle Name</b></th>
+  			<th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black;"><b>Last Name</b></th>
+  			<th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black;"><b>Extension Name</b></th>
+  			<th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black;"><b>Email</b></th>
+  			<th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black;"><b>New Password</b></th>
+  			<th style="color: #a48493; font-size: 25px; text-shadow: 2px 2px black;"><b>Gender</b></th>
+  		</tr>
+    </thead>
 <div class="yey">
 	{% for yey in yey %}
 	<div class="yey">
+		<tbody style="height:30px; border-bottom:1px solid #E3F1D5; font-family: Times New Roman, Times, serif;">
+			<tr>
+				<td><b style="color: black;">{{ forloop.counter }}:{{ yey.fname }}</b></td>
+				<td><b style="color: black;">{{ yey.mname }}</b></td>
+				<td><b style="color: black;">{{ yey.lname }}</b></td>
+				<td><b style="color: black;">{{ yey.ename}}</b></td>
+				<td><b style="color: black;">{{ yey.email }}</b></td>
+				<td><b style="color: black;">{{ yey.password }}</b></td>
+				<td><b style="color: black;">{{ yey.gender }}</b></td>
+			</tr>
+		</tbody>
 
-    <tr>
-    
-    <td><b style="color: black;">{{ forloop.counter }}:{{ yey.fname }}</b></td>
-    <td><b style="color: black;">{{ yey.mname }}</b></td>
-    <td><b style="color: black;">{{ yey.lname }}</b></td>
-    <td><b style="color: black;">{{ yey.ename}}</b></td>
-    <td><b style="color: black;">{{ yey.email }}</b></td>
-    <td><b style="color: black;">{{ yey.password }}</b></td>
-    <td><b style="color: black;">{{ yey.gender }}</b></td>
-
-  </tr>
 
 
 </div>
