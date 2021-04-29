@@ -18,38 +18,6 @@ def Mainpage(request):
 			submit1 = request.POST['submit1'],
 			)
 		return redirect('oks')
-# from django.shortcuts import redirect, render
-# from .models import Item, User
-
-
-# # Create your views here.
-# def Mainpage(request):
-	
-# 	if request.method == 'POST':
-
-# 		collab = User.objects.create()
-# 		Item.objects.create(
-# 			fname = request.POST['fname'],
-# 			mname = request.POST['mname'], 
-# 			lname = request.POST['lname'],
-# 			ename = request.POST['ename'], 
-# 			email = request.POST['email'],
-# 			password = request.POST['password'],
-# 			gender = request.POST['gender'],
-# 			submit = request.POST['submit'],
-# 			)
-# 		return redirect('oks')
-	# if request.method == 'POST':
-		
-	# 	fname = request.POST['fname']
-	# 	mname = request.POST['mname']
-	# 	lname = request.POST['lname']
-	# 	ename = request.POST['ename']
-	# 	email = request.POST['emails']
-	# 	password = request.POST['password1']
-	# 	gender = request.POST['gender']
-	# 	submit = request.POST['submit1']
-
 		
 		yey = Item()
 		yey.fname = fname
