@@ -2,9 +2,19 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-	path('', views.Mainpage),
-	path('oks/', views.Page),
+    path ('',views.Mainpage),
+    path('oks', views.Page, name="oks"),
+    
 ]
+
+
+# from django.urls import path
+# from . import views
+
+# urlpatterns = [
+# 	path('', views.Mainpage, name="Mainpage"),
+# 	path('oks', views.Page, name="oks"),
+# ]
 
 """ProdList URL Configuration
 

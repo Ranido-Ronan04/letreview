@@ -1,21 +1,54 @@
-from django.shortcuts import render, HttpResponse
-from .models import Item
-
+from django.shortcuts import redirect, render
+from .models import Item, User
 
 # Create your views here.
 def Mainpage(request):
 	
-	
 	if request.method == 'POST':
+
+		collab = User.objects.create()
+		Item.objects.create(
+			fname = request.POST['fname'],
+			mname= request.POST['mname'], 
+			lname = request.POST['lname'],
+			ename = request.POST['ename'], 
+			email = request.POST['emails'],
+			password = request.POST['password1'],
+			gender = request.POST['gender'],
+			submit1 = request.POST['submit1'],
+			)
+		return redirect('oks')
+# from django.shortcuts import redirect, render
+# from .models import Item, User
+
+
+# # Create your views here.
+# def Mainpage(request):
+	
+# 	if request.method == 'POST':
+
+# 		collab = User.objects.create()
+# 		Item.objects.create(
+# 			fname = request.POST['fname'],
+# 			mname = request.POST['mname'], 
+# 			lname = request.POST['lname'],
+# 			ename = request.POST['ename'], 
+# 			email = request.POST['email'],
+# 			password = request.POST['password'],
+# 			gender = request.POST['gender'],
+# 			submit = request.POST['submit'],
+# 			)
+# 		return redirect('oks')
+	# if request.method == 'POST':
 		
-		fname = request.POST['fname']
-		mname = request.POST['mname']
-		lname = request.POST['lname']
-		ename = request.POST['ename']
-		email = request.POST['emails']
-		password = request.POST['password1']
-		gender = request.POST['gender']
-		submit = request.POST['submit1']
+	# 	fname = request.POST['fname']
+	# 	mname = request.POST['mname']
+	# 	lname = request.POST['lname']
+	# 	ename = request.POST['ename']
+	# 	email = request.POST['emails']
+	# 	password = request.POST['password1']
+	# 	gender = request.POST['gender']
+	# 	submit = request.POST['submit1']
 
 		
 		yey = Item()
@@ -23,16 +56,13 @@ def Mainpage(request):
 		yey.mname = mname
 		yey.lname = lname
 		yey.ename = ename
-		yey.email = email
-		yey.password = password
+		yey.emails = emails
+		yey.password1 = password1
 		yey.gender = gender
-		yey.submit = submit
+		yey.submit1 = submit1
 		yey.save()
 
-
-
-	return render(request,'Mainpage.html')	
-
+	return render(request,'Mainpage.html')
 
 def Page(request):
 	yey = Item.objects.all().order_by('fname')

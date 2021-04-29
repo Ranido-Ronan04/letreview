@@ -2,16 +2,19 @@ from django.test import TestCase
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 from ronanprod.views import Mainpage
+from ronanprod.views import Page
 from django.urls import resolve
-from ronanprod.models import Item
+#For Models testing
+from ronanprod.models import Item, User
+from django.urls import reverse
 
 class IndexTest(TestCase):
 
 	def html_mainpage(self):
 		found = resolve('/')
 		self.assertEqual(found.func, Mainpage)
+		self.assertEqual(found.func, Page)
 
-		
 	def test_index_returns_correct_view(self):
 		request = HttpRequest()
 		response = Mainpage(request)
@@ -58,7 +61,42 @@ class IndexTest(TestCase):
 		self.assertIn('</html>', html)
 		self.assertTrue(html.strip().endswith('</html>'))
 
-		self.assertTrue(html.strip().endswith('</html>'))
+		#self.assertTrue(html.strip().endswith('</html>'))
+
+class ListViewTest(TestCase):
+
+	def test_uses_list_template(self):
+		collab = User.objects.create()
+		response = self.client.get('/')
+		self.assertTemplateUsed(response, 'Mainpage.html')
+	def test_uses_home_template(self):
+		response = self.client.get('/next/')
+		#self.assertTemplateUsed(response, 'mainpage1.html')
+	def test_displays_all_list_items(self):
+		collab = User.objects.create()
+		fname = Item.objects.create(fname='fname')
+		mname = Item.objects.create(mname='mname')
+		lname = Item.objects.create(lname='lname')
+		ename = Item.objects.create(ename='ename')
+		email = Item.objects.create(email='email')
+		password = Item.objects.create(password='password')
+		gender = Item.objects.create(gender='gender')
+		response = self.client.get('/')
+		self.assertIn('fname', response.content.decode())
+		self.assertIn('mname', response.content.decode())
+		self.assertIn('lname', response.content.decode())
+		self.assertIn('ename', response.content.decode())
+		self.assertIn('email', response.content.decode())
+		self.assertIn('password', response.content.decode())
+		self.assertIn('gender', response.content.decode())
+		fname = Item.objects.get(fname="fname")
+		mname = Item.objects.get(mname="mname")
+		lname = Item.objects.get(lname="lname")
+		ename = Item.objects.get(ename="ename")
+		email = Item.objects.get(email="email")
+		password = Item.objects.get(password="password")
+		gender = Item.objects.get(gender="gender")
+		self.assertEqual(Item.objects.count(), 7)
 
 class ORM_save_item1(TestCase):
 	def test_saving_ronan(self):
@@ -140,7 +178,210 @@ class ORM_save_item2(TestCase):
 		self.assertEqual(Item6.password, 'ronankyle')
 		self.assertEqual(Item7.gender, 'Male')
 
+# class Views(TestCase):
+# 	def test(self):
+# 		Item.objects.create(fname='fname', mname='mname', lname='lname', ename='ename', email='email', password='password', gender='gender')
+# 		response = self.client.get('/app/views.Mainpage/')
+
 class Views(TestCase):
-	def test(self):
-		Item.objects.create(fname='fname', mname='mname', lname='lname', ename='ename', email='email', password='password', gender='gender')
-		response = self.client.get('/app/views.Mainpage/')
+	def setUp(self):
+		fname = Item.objects.create()
+		mnane = Item.objects.create()
+		lname = Item.objects.create()
+		ename = Item.objects.create()
+		email = Item.objects.create()
+		password = Item.objects.create()
+		gender = Item.objects.create()
+		
+		Item.objects.create(
+			fname = 'Juan',
+			mname = 'Gomez',
+			lname = 'Dela Cruz',
+			ename = 'Jr.',
+			email = 'juan.delacruz@yahoo.com',
+			password = '123456',
+			gender = 'Male',
+			)
+		self.client.post('oks')
+		self.assertEqual(Item.objects.count(), 8)
+		
+
+	def test_redirect_view(self):
+		fname = Item.objects.get(fname="Juan")
+		mname = Item.objects.get(mname="Gomez")
+		lname = Item.objects.get(lname="Dela Cruz")
+		ename = Item.objects.get(ename="Jr.")
+		email = Item.objects.get(email="juan.delacruz@yahoo.com")
+		password = Item.objects.get(password="123456")
+		gender = Item.objects.get(gender="Male")
+
+		# response = self.client.post('oks')
+		# self.assertRedirects(response, 'oks')
+class Models(TestCase):
+
+	def modelo(self, 
+		fname="Juan", 
+		mname="Gomez", 
+		lname="Dela Cruz", 
+		ename="Jr.", 
+		email="juan.delacruz@yahoo.com", 
+		password="123456", 
+		gender="Male"):
+		
+		return User.objects.create()
+		return Item.objects.create(
+			fname="fname", 
+			mname="mname", 
+			lname="lname", 
+			ename="ename", 
+			email="email", 
+			password="password", 
+			gender="gender", )
+
+	def test_whatever_creation(self):
+		w = self.modelo()
+		self.assertTrue(isinstance(w, User))
+		self.assertFalse(isinstance(w, Item))
+
+
+
+# class Views2(TestCase):
+# 	def setUp(self):
+# 		fname = Item.objects.create()
+# 		mnane = Item.objects.create()
+# 		lname = Item.objects.create()
+# 		ename = Item.objects.create()
+# 		email = Item.objects.create()
+# 		password = Item.objects.create()
+# 		gender = Item.objects.create()
+		
+# 		Item.objects.create(
+# 			fname = 'Ronan Kyle',
+# 			mname = '',
+# 			lname = 'Ranido',
+# 			ename = '',
+# 			email = 'ronankyle.ranido@gsfe.tupcavite.edu.ph',
+# 			password = 'ronankyle',
+# 			gender = 'Male',
+# 			)
+# 		self.client.post('/next/')
+# 		self.assertEqual(Item.objects.count(), 8)
+		
+
+# 	def test_redirect_view(self):
+# 		fname = Item.objects.get(fname="Ronan Kyle")
+# 		mname = Item.objects.get(mname="")
+# 		lname = Item.objects.get(lname="Ranido")
+# 		ename = Item.objects.get(ename="")
+# 		email = Item.objects.get(email="ronankyle.ranido@gsfe.tupcavite.edu.ph")
+# 		password = Item.objects.get(password="ronankyle")
+# 		gender = Item.objects.get(gender="Male")
+
+# 		response = self.client.post('/next/')
+# 		self.assertRedirects(response, '/next/')
+
+
+# from django.test import TestCase
+# from django.http import HttpRequest
+# from django.template.loader import render_to_string
+# from app.views import Index
+# from app.views import NextPage
+# from django.urls import resolve
+# #For Models testing
+# from app.models import Details, User
+# from django.urls import reverse
+
+
+
+
+# class IndexTest(TestCase):
+
+# 	def html_index_root_mainpage_pwede_din_homepage_basta(self):
+# 		found = resolve('/')
+# 		self.assertEqual(found.func, Index)
+# 		self.assertEqual(found.func, NextPage)
+
+		
+# 	def test_index_returns_correct_view(self):
+# 		request = HttpRequest()
+# 		response = Index(request)
+# 		html = response.content.decode('UTF-8')
+# 		response = self.client.get('/')
+# 		self.assertTemplateUsed(response, 'index.html')
+# 		self.assertTrue(html.strip().startswith('<html lang="en">'))
+# 		self.assertIn('<title>Parang Google Classroom</title>', html)
+# 		self.assertIn('<h1>Welcome to my class</h1>', html)
+# 		self.assertIn('<p>You dont workhard do what you really love to do</p>', html)
+# 		self.assertIn('<select id="select" name="select" id="select" required>', html)
+# 		self.assertIn('<option id="section1" name="section1" value="BSIE-ICT-3A" required>BSIE-ICT-3A</option>', html)
+# 		self.assertIn('<option id="section2" name="section2" value="BSIE-ICT-3B" required>BSIE-ICT-3B</option>', html)
+# 		self.assertIn('</select>', html)
+# 		self.assertIn('<label id="males">Male</label>', html)
+# 		self.assertIn('<input type="radio" name="gender" id="male" value="Male" required>', html)
+# 		self.assertIn('<label id="females">Female</label>', html)
+# 		self.assertIn('<input type="radio" name="gender" id="female" value="Female"required>', html)
+# 		self.assertIn('<label id="names">Name:</label>', html)
+# 		self.assertIn('<input type="text" name="name" id="name" placeholder="Enter Name" required>', html)
+# 		self.assertIn('<label id="subjects">Subject:</label>', html)
+# 		self.assertIn('<input type="text" name="subject" id="subject" placeholder="Enter Subject" required>', html)
+# 		self.assertIn('<label id=bodies>Body:</label>', html)
+# 		self.assertIn('<textarea type="text" name="body" id="body" placeholder="Write Something" style="height:200px">', html)
+# 		self.assertIn('<label id="files">Files:</label>', html)
+# 		self.assertIn('<input name="file" type="file" id="file">', html)
+# 		self.assertIn('<input type="reset" id="reset"value="Delete all">', html)
+# 		self.assertIn('<input type="submit" id=turnin value="Turn In">', html)
+# 		self.assertTrue(html.strip().endswith('</html>'))
+
+# class ListViewTest(TestCase):
+
+# 	def test_uses_list_template(self):
+# 		student = User.objects.create()
+# 		response = self.client.get('/')
+# 		self.assertTemplateUsed(response, 'index.html')
+# 	def test_uses_home_template(self):
+# 		response = self.client.get('/next/')
+# 		self.assertTemplateUsed(response, 'anotherpage.html')
+# 	def test_displays_all_list_items(self):
+# 		student = User.objects.create()
+# 		name = Details.objects.create(name='name')
+# 		subject = Details.objects.create(subject='subject')
+# 		body = Details.objects.create(body='body')
+# 		file = Details.objects.create(file='file.docx')
+# 		gender = Details.objects.create(gender='gender')
+# 		select = Details.objects.create(select='select')
+# 		response = self.client.get('/')
+# 		self.assertIn('name', response.content.decode())
+# 		self.assertIn('subject', response.content.decode())
+# 		self.assertIn('body', response.content.decode())
+# 		self.assertIn('file', response.content.decode())
+# 		self.assertIn('gender', response.content.decode())
+# 		self.assertIn('select', response.content.decode())
+# 		name = Details.objects.get(name="name")
+# 		subject = Details.objects.get(subject="subject")
+# 		body = Details.objects.get(body="body")
+# 		file = Details.objects.get(file="file.docx")
+# 		gender = Details.objects.get(gender="gender")
+# 		select = Details.objects.get(select="select")
+# 		self.assertEqual(Details.objects.count(), 6)
+
+		
+# class Views(TestCase):
+# 	def setUp(self):
+# 		name = Details.objects.create()
+# 		subject = Details.objects.create()
+# 		body = Details.objects.create()
+# 		file = Details.objects.create()
+# 		gender = Details.objects.create()
+# 		select = Details.objects.create()
+		
+# 		Details.objects.create(
+# 			name = 'jenjie',
+# 			subject = 'ICT',
+# 			body = 'HAHAHAHAHA',
+# 			file = 'Assignment.docx',
+# 			gender = 'Male',
+# 			select = 'BSIE-ICT-3A',
+# 			)
+# 		self.client.post('/next/', name='jenjie')
+# 		response = self.client.post('/next/')
+# 		self.assertRedirects(response, '/next/')
