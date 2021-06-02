@@ -8,7 +8,14 @@ urlpatterns = [
 	path('', include('ronanprod.urls')),
 ]
 
+# from django.urls import path
+# from . import views
 
+# urlpatterns = [
+#     path('', views.html1),
+#     path('oks', views.Tupc, name="oks"),
+#     path('nan', views.Center, name="nan"),
+#     path('nan', views.Selfreview, name="nan"),
 
 """ProdList URL Configuration
 
