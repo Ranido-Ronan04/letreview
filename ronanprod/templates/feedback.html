@@ -1,90 +1,10 @@
+{% load static %}
 <html>
 <head>
 <title>Dasmariñas Online LET Review Site</title>
-<style>
-   ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-      text-align: center;
-    }
-    
-    li {
-      display: inline-block;
-      width: 22%;
-    }
-    
-    li a, .dropbtn {
-      font-size: 30px;
-      font-family: cursive;
-      text-shadow: 1px 1px dimgray;
-      display: inline-block;
-      color: burlywood;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      width: 100%;
-    }
-    
-    li a:hover, .dropdown:hover .dropbtn {
-      background-color: red;
-    }
-    
-    li.dropdown {
-      display: inline-block;
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      width: max-content;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1; 
-    }
-    
-    .dropdown-content a {
-      color: black;
-      padding: 12px 12px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-      width: auto;
-    }
-    
-    .dropdown-content a:hover {background-color: #f1f1f1;}
-    
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    a {
-      color: lightcoral;
-      font-size: 15px;
-      font-family: serif;
-    }
-
-    h1 {
-      color: lightseagreen;
-      font-size: 50px;
-      font-family: sans-serif;
-      text-shadow: 3px 3px darkkhaki;
-    }
-
-    p {
-      color: royalblue;
-      font-size: 50px;
-      font-family: cursive;
-      text-shadow: 2px 2px black;
-    }
-    body {
-      background-color: lightgrey;
-    }
-    </style>
+<link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
    </head>
-<body>
+<body style="background-image: url('{% static 'IMAGE/book4.jpeg' %}'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;">
 	<ul>
     <li><a href="firstpage.html">Home</a></li>
     <li><a href="reviewcenter.html">Review Center</a></li>
@@ -92,11 +12,11 @@
       <a href="javascript:void(0)" class="dropbtn">Reviewer</a>
       <div class="dropdown-content">
         <a href="reviewer.html">Professional Education</a>
-        <a href="#">General Education</a>
-        <a href="#">Technology and Livelihood Education</a>
+        <a href="reviewer.html">General Education</a>
+        <a href="reviewer.html">Technology and Livelihood Education</a>
       </div>
     </li>
-    <li><a href="exam.html">Schedule</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
   </ul>
   <center>
 <h1>Feedbacks</h1>

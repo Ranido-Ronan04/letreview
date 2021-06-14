@@ -2,109 +2,95 @@ from django.db import models
 
 
 
-class Let(models.Model):
+class Participant(models.Model):
 
-	#Taker's Name
-	name = models.CharField(max_length=50, null=True)
-	#Taker's address
-	address = models.CharField(max_length=50, null=True)
-	#Taker's Contact
-	contact = models.CharField(max_length=50, null=True)
-	#Taker's Type
-	# tchoice = (('teacher','Teacher'),('graduate','Graduate'))
-	# appli = models.TextField(choices=tchoice, default='none')
-	#School
+	cname = models.CharField(max_length=50, null=True)
+	add = models.CharField(max_length=50, null=True)
 	school = models.CharField(max_length=50, null=True)
-	#Taker's course
-	course = models.CharField(max_length=50, null=True)
-	#Birthday
-	Birthday = models.DateField(max_length=50, null=True)
-	#gender
-	Gender =(('gender', 'Male'), ('gender', 'Female'))
-	Gender =models.CharField(max_length=10, choices=Gender, default='none')
-	#Taker's choice
-	# rchoice = (('sr','Self Review'),('rc','Review Center'))
-	# style = models.TextField(choices=rchoice, default='none')
+	num = models.CharField(max_length=50, null=True)
 
 	def __str__(self):
-		return self.name
+		return self.cname
 
 
+class ReviewCenter(models.Model):
 
-class Center(models.Model):
-
-	user = models.ForeignKey(Let, default=None, on_delete=models.CASCADE, null=True)
+	user = models.ForeignKey(Participant, default=None, on_delete=models.CASCADE, null=True)
 
 	#Center's Name
-	Name_of_the_Review_Center = models.CharField(max_length=50, null=True)
+	reviewcentername = models.CharField(max_length=50, null=True)
 	#Center's address
-	Address_of_the_Review_Center = models.CharField(max_length=50, null=True)
-	#Lecturer's Name
-	Name_of_the_Lecturer = models.CharField(max_length=50, null=True)
-	#Center's fee
-	Payment = models.IntegerField(null=True)
-	#Schedule
-	Schedule_of_the_Review = models.DateField(max_length=50, null=True)
+	reviewcenteradd = models.CharField(max_length=50, null=True)
+	# #Lecturer's Name
+	# Name_of_the_Lecturer = models.CharField(max_length=50, null=True)
+	# #Center's fee
+	# Payment = models.IntegerField(null=True)
+	# #Schedule
+	# Schedule_of_the_Review = models.DateField(max_length=50, null=True)
 	
 	
 
 	def __str__(self):
-		return self.Name_of_the_Review_Center
+		return self.reviewcentername
 
+class Enrollment(models.Model):
 
+	user = models.ForeignKey(Participant, default=None, on_delete=models.CASCADE, null=True)
 
-
-
-class Exam(models.Model):
-
-	user = models.ForeignKey(Let, default=None, on_delete=models.CASCADE, null=True)
-
-	#Name of the School
-	Name_of_the_School = models.CharField(max_length=50, null=True)
-	#Address of the school
-	Address_of_the_School = models.CharField(max_length=50, null=True)
-	#Date of review
-	Date_of_the_Exam = models.DateTimeField(null=True)
-	#Subject
-	# schoice = (('gened','General Education'),('profed','Profession Educaction'),('ict','Information and Communication Technology'))
-	# subject = models.TextField(choices=schoice, default='none')
-	#Summary of review
-	# summary = models.CharField(max_length=50, null=True)
-	
-	
+	enrollmentdate = models.DateTimeField(null=True)
+	sub = (
+		('profed','Professional Education'),
+		('gened','General Education'),
+		('tle','Technology and Livelihood Education'),
+		)
+	subject = models.CharField(max_length=50, choices=sub, default='sub1')
+	session = models.IntegerField(null=True)
+	lecturer = models.CharField(max_length=50, null=True)
+	sched = (
+		('monday','Monday'),
+		('tuesday','Tuesday'),
+		('wednesday','Wednesday'),
+		('thursday','Thursday'),
+		('friday','Friday'),
+		('saturday','Saturday'),
+		('sunday','Sunday'),
+		)
+	schedule = models.CharField(max_length=50, choices=sched, default='monday')
+	payment = models.CharField(max_length=50, null=True)
 
 	def __str__(self):
-		return self.Name_of_the_School
+		return self.enrollmentdate
 
 
+class Schedule(models.Model):
 
+	user = models.ForeignKey(Participant, default='', on_delete=models.CASCADE, null=True)
 
+	place = models.CharField(max_length=50, null=True)
+	examdate = models.DateTimeField(null=True)
 
+	def __str__(self):
+		return self.place
 
-# class Selfreview(models.Model):
+# class Exam(models.Model):
 
-# 	user = models.ForeignKey(Let, default=None, on_delete=models.CASCADE, null=True)
+# 	user = models.ForeignKey(Participant, default=None, on_delete=models.CASCADE, null=True)
 
+# 	#Name of the School
+# 	Name_of_the_School = models.CharField(max_length=50, null=True)
+# 	#Address of the school
+# 	Address_of_the_School = models.CharField(max_length=50, null=True)
 # 	#Date of review
-# 	date = models.DateTimeField(null=True)
-# 	#Subject
-# 	schoice = (('gened','General Education'),('profed','Profession Educaction'),('ict','Information and Communication Technology'))
-# 	subject = models.TextField(choices=schoice, default='none')
-# 	#Summary of review
-# 	summary = models.CharField(max_length=50, null=True)
-	
+# 	Date_of_the_Exam = models.DateTimeField(null=True)
 	
 
 # 	def __str__(self):
-# 		return self.summary
-
-
-
+# 		return self.Name_of_the_School
 
 
 class Feedback(models.Model):
 
-	user = models.ManyToManyField(Let)
+	user = models.ManyToManyField(Participant)
 
 	#Date of exam
 	# exam = models.DateTimeField(null=True)
@@ -112,13 +98,13 @@ class Feedback(models.Model):
 	# stchoice = (('passed','Passed'),('failed','Failed'))
 	# status = models.TextField(choices=stchoice, default='none')
 	#strength
-	strength = models.CharField(max_length=50, null=True)
+	strength = models.CharField(max_length=1000, null=True)
 	#weakness
-	weakness = models.CharField(max_length=50, null=True)
+	weakness = models.CharField(max_length=1000, null=True)
 	#comments
-	comment = models.CharField(max_length=50, null=True)
+	comment = models.CharField(max_length=1000, null=True)
 	#Ssuggestion
-	suggestion = models.CharField(max_length=50, null=True)	
+	suggestion = models.CharField(max_length=1000, null=True)	
 	
 	
 

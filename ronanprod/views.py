@@ -1,114 +1,51 @@
 from django.shortcuts import redirect, render
-from .models import Let, Center, Exam, Feedback
+from .models import Participant, ReviewCenter, Enrollment, Feedback, Schedule
 
-# def html1(request):
 
-# 	return render(request,'html1.html')
-
-# def Let(request):
-
-# 	user=Let.objects.create(
-# 		cname = request.POST['cname'],
-# 		add = request.POST['add'],
-# 		num = request.POST['num'],
-# 		school = request.POST['school'],
-# 		course = request.POST['course'],
-# 		# profession = request.POST[('teacher','Teacher'),('grad','Graduate')],
-# 		bday = request.POST['bday'],
-# 		gender = request.POST['gender']
-# 		# review = request.POST[('sr','Self Review'),('rc','Review Center')],
-# 		)
-
-# 	return render(request,'reviewcenter.html')
-# 	return redirect('nan')
-
-def html1(request):
-
-	if request.method == 'POST':
-
-		name = Let.objects.create(
-			cname = request.POST['cname'],
-			add = request.POST['add'],
-			num = request.POST['num'],
-			school = request.POST['school'],
-			course = request.POST['course'],
-			bday = request.POST['bday'],
-			gender = request.POST['gender'],
-			submit = request.POST['submit']
-			# gradelevel = request.POST['gradelevel'],
-			# name = request.POST['name'], 
-			# lrn = request.POST['lrn'],
-			# birthday = request.POST['birthday'], 
-			# address = request.POST['address'],
-			)
-
-		return redirect('Center')
-		
-		nan = Let()
-		nan.cname = cname
-		nan.add = add
-		nan.num = num
-		nan.school = school
-		nan.course = course
-		nan.bday = bday
-		nan.gender = gender
-		nan.submit = submit
-		nan.save()
-
+def homepage(request):
 	return render(request,'firstpage.html')
-	# return redirect('nan')
 
-def Center(request):
+def Participants(request):
+
+
+	# ronan = Participant.objects.create(
+	# 	cname = request.POST['cname'],
+	# 	add = request.POST['add'],
+	# 	num = request.POST['num'],
+	# 	school = request.POST['school'],
+	# 	)
+
+	return render(request,'reviewcenter.html')
+
+def reviewcenter(request):
+
+	# center = ReviewCenter.objects.create(
+	# 	reviewcentername = request.POST['reviewcentername'],
+	# 	reviewcenteradd = request.POST['reviewcenteradd'],
+	# 	)
 	
-	nan = Center.objects.all().order_by('name')
-	return redirect(request,'reviewcenter.html', {'nan': nan})
+	return render(request, 'enrollment.html')
 
-# def
-#  Omepage(request):
+# def ReviewCenterr(request):
+# 	return render(request, 'enrollment.html')
 
-# 	if request.method == 'POST':
+def enrollment(request):
+	# enrol = Enrollment.objects.create(
+	# 	enrollmentdate = request.POST['enrollmentdate'],
+	# 	subject = request.POST['subject'],
+	# 	session = request.POST['session'],
+	# 	lecturer = request.POST['lecturer'],
+	# 	schedule = request.POST['schedule'],
+	# 	payment = request.POST['payment'],
+	# 	)
+	return render(request, 'enrollment.html')
 
-# 		enroll = Student.objects.create()
-# 		Student.objects.create(
-# 			gradelevel = request.POST['gradelevel'],
-# 			name = request.POST['name'], 
-# 			lrn = request.POST['lrn'],
-# 			birthday = request.POST['birthday'], 
-# 			address = request.POST['address'],
-# 			)
+def Feed(request):
+	return render(request, 'feedback.html')
 
-# 		return redirect('students')
-		
-# 		abg = Student()
-# 		abg.gradelevel = gradelevel
-# 		abg.name = name
-# 		abg.lrn = lrn
-# 		abg.birthday = birthday
-# 		abg.address = address
-# 		abg.save()
+def Enroll(request):
+	return render(request, 'enrollment.html')
 
-# 	return render(request,'Omepage.html')
+def Review(request):
+	return render(request, 'reviewer.html')
 
-# def
-#  Page(request):
-	
-# 	abg = Student.objects.all().order_by('gradelevel')
-# 	return render(request,'students.html', {'abg': abg})
-
-
-# def Reviewc(request):
-
-# 	# customerId=Customer.objects.get(id=customerId)
-
-# 	resortId=Resort.objects.create(
-# 		resort = request.POST['resort'])
-
-# 	admitId=Admission.objects.create(
-# 		entrance = request.POST['entrance'],
-# 		admit = request.POST['admit'],
-# 		)
-
-# 	cottageId=Cottage.objects.create(
-# 		cottage = request.POST['cottage'])
-
-# 	return render(request,'receipt.html')

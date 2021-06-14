@@ -1,0 +1,135 @@
+{% load static %}
+<html>
+<head>
+<title>Dasmariñas Online LET Review Site</title>
+<link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+</head>
+<script>
+function myProf() {
+  var checkBox = document.getElementById("myProfEd");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+
+function myGen() {
+  var checkBox = document.getElementById("myGenEd");
+  var text = document.getElementById("text1");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+
+function myTle() {
+  var checkBox = document.getElementById("myTLE");
+  var text = document.getElementById("text2");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+</script>
+<body style="background-image: url('{% static 'IMAGE/book3.webp' %}'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+	<ul>
+    <li><a href="firstpage.html">Home</a></li>
+    <li><a href="reviewcenter.html">Review Center</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Reviewer</a>
+      <div class="dropdown-content">
+        <a href="reviewer.html">Professional Education</a>
+        <a href="reviewer.html">General Education</a>
+        <a href="reviewer.html">Technology and Livelihood Education</a>
+      </div>
+    </li>
+    <li><a href="feedback.html">Feedback</a></li>
+  </ul>
+  <center>
+<h1>Reviewer</h1>
+<p>Study and Work Hard!</p>
+<input type="radio" id="myProfEd" onclick="myProf()">
+<label for="myProfEd" style="font-size: 25px; color: red;">Professional Education</label><br>
+
+<p id="text" style="display:none">
+<a href="{% static 'PROF/PROFESSIONAL EDUCATION.pdf' %}" download>Professional Education</a><br>
+<a href="{% static 'PROF/Part 1 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 1</a><br>
+<a href="{% static 'PROF/Part 2 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 2</a><br>
+<a href="{% static 'PROF/Part 3 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 3</a><br>
+<a href="{% static 'PROF/Part 4 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 4</a><br>
+<a href="{% static 'PROF/Part 5 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 5</a><br>
+<a href="{% static 'PROF/Part 6 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 6</a><br>
+<a href="{% static 'PROF/Part 7 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 7</a><br>
+<a href="{% static 'PROF/Part 8 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 8</a><br>
+</p>
+
+<input type="radio" id="myGenEd" onclick="myGen()">
+<label for="myGenEd" style="font-size: 25px; color: red;">General Education</label><br>
+
+<p id="text1" style="display:none">
+<a href="{% static 'GEN/Gen ed Board for Professional pdfbooksforum.com.pdf' %}" download>Gened Board for Professional</a><br>
+<a href="{% static 'GEN/Gen ed Topnotcher Blept Reviewer Vol 1 pdfbooksforum.com.pdf' %}" download>Gened Topnotcher Blept Reviewer Vol 1</a><br>
+<a href="{% static 'GEN/Part 1 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 1</a><br>
+<a href="{% static 'GEN/Part 2 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 2</a><br>
+<a href="{% static 'GEN/Part 3 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 3</a><br>
+<a href="{% static 'GEN/Part 4 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 4</a><br>
+<a href="{% static 'GEN/Part 5 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 5</a><br>
+<a href="{% static 'GEN/Part 6 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 6</a><br>
+<a href="{% static 'GEN/Part 7 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 7</a><br>
+<a href="{% static 'GEN/Part 8 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 8</a><br>
+</p>
+
+<input type="radio" id="myTLE" onclick="myTle()">
+<label for="myTLE" style="font-size: 25px; color: red;">Technology and Livelihood Education</label><br>
+
+<p id="text2" style="display:none">
+<a href="{% static 'FILE/Basic Electricity.pdf' %}" download>Basic Electricity</a><br>
+<a href="{% static 'FILE/Computer Programming.pdf' %}" download>Computer Programming</a><br>
+<a href="{% static 'FILE/crop classification.pdf' %}" download>Crop Classification</a><br>
+<a href="{% static 'FILE/CROP PRODUCTION.pdf' %}" download>Crop Production</a><br>
+<a href="{% static 'FILE/CROP PROPAGATION.pdf' %}" download>Crop Propagation</a><br>
+<a href="{% static 'FILE/CROP PROTECTION.pdf' %}" download>Crop Protection</a><br>
+<a href="{% static 'FILE/Farm Tools and Equipment.pdf' %}" download>Farm Tools and Equipment</a><br>
+<a href="{% static 'FILE/FERTILIZERS.pdf' %}" download>Fertilizers</a><br>
+<a href="{% static 'FILE/Fish-Capture.pdf' %}" download>Fish Capture</a><br>
+<a href="{% static 'FILE/FISH CULTURE.pdf' %}" download>Fish Culture</a><br>
+<a href="{% static 'FILE/Handicraft.pdf' %}" download>Handicraft</a><br>
+<a href="{% static 'FILE/HYDROPONICS.pdf' %}" download>Hydroponics</a><br>
+<a href="{% static 'FILE/Introduction to Agriculture.pdf' %}" download>Introduction to Agriculture</a><br>
+<a href="{% static 'FILE/IRRIGATION AND DRAINAGE SYSTEMS.pdf' %}" download>Irrigation and Drainage Systems</a><br>
+<a href="{% static 'FILE/ORGANIC FERTILIZER CONCOCTIONS.pdf' %}" download>Organic Fertilizer Concoctions</a><br>
+<a href="{% static 'FILE/POULTRY MANAGEMENT.pdf' %}" download>Poultry Management</a><br>
+<a href="{% static 'FILE/POULTRY RAISING.pdf' %}" download>Poultry Raising</a><br>
+<a href="{% static 'FILE/Securing Farm Tools, Implements, Equipment, and Facilities.pdf' %}" download>Securing Farm Tools, Implements, Equipment, and Facilities</a><br>
+<a href="{% static 'FILE/sheet metal.pdf' %}" download>Sheet Metal</a><br>
+<a href="{% static 'FILE/SOIL.pdf' %}" download>Soil</a><br>
+<a href="{% static 'FILE/Swine Artificial Insemination.pdf' %}" download>Swine Artificial Insemination</a><br>
+<a href="{% static 'FILE/Swine Production.pdf' %}" download>Swine Production</a><br>
+<a href="{% static 'FILE/Tailoring.pdf' %}" download>Tailoring</a><br>
+<a href="{% static 'FILE/TECHNOLOGY AND LIVELIHOOD EDUCATION.pdf' %}" download>Technology and  Livelihood Education</a><br>
+</p>
+
+<!-- <a>Professional Education</a><br>
+<a>General Education</a><br>
+<a>Technology and Livelihood Education</a><br>
+<a href="{% static 'FILE/Basic Electricity.pdf' %}" download>Basic Electricity</a> -->
+<!-- <a>Strengths</a><br>
+<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<a>Weaknesses</a><br>
+<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<a>Comments</a><br>
+<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<a>Suggestions</a><br>
+<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<form>
+  <button type="submit" formaction="#">Submit</button>
+</form> -->
+  </center>
+</body>
+
+</html>
+

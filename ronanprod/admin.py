@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Let, Center, Exam, Feedback
+from .models import Participant, ReviewCenter, Enrollment, Feedback, Schedule
 # Register your models here.
-admin.site.register(Let)
-admin.site.register(Center)
-admin.site.register(Exam)
+admin.site.register(Participant)
+admin.site.register(ReviewCenter)
+admin.site.register(Enrollment)
 # admin.site.register(Result)
 admin.site.register(Feedback)
+admin.site.register(Schedule)
