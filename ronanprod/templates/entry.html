@@ -1,0 +1,87 @@
+<p><b>Teaching Price</b></p><br>
+<a>Subject:<br>
+    <select name='subject' id='subject' required>
+      <option value="1000" id="sub1">General Education</option>
+      <option value="1500" id="sub2">Professional Education</option>
+      <option value="2000" id="sub3">Technology and Livelihood Education</option>
+    </select></a><br>
+<a>
+    <br> Number of Session:<br>
+     <input type="text" name="quantity" id='quantity' value="" required>
+   </a>
+   <a>
+     <br> Distinction:<br>
+    <select name='disc' id='disc'>
+      <option value="Summa Cum Laude" id="latin1" name="honor1">Summa Cum Laude</option>
+      <option value="Magna Cum Laude" id="latin2" name="honor2">Magna Cum Laude</option>
+      <option value="Cum Laude" id="latin3" name="honor3">Cum Laude</option>
+      <option value="None" id="latin4" name="honor4">None</option>
+    </select><br>
+  </a>
+        <a>Total Payment:
+    <span type="text" name="totalCost" id="totalCost" style="color:black"></span></a><br><br>
+
+
+    <table>
+    	<tr>
+    		<th>Subject</th>
+    		<th>Amount</th>
+    	</tr>
+    	<tr>
+    		<td>General Education</td>
+    		<td>Php 1000.00</td>
+    	</tr>
+    	<tr>
+    		<td>Professional Education</td>
+    		<td>Php 1500.00</td>
+    	</tr>
+    	<tr>
+    		<td>Technology and Livelihood Education</td>
+    		<td>Php 2000.00</td>
+    	</tr>
+    </table><br>
+
+    
+
+  	Number of Session: <input type="text" value="" name="Quantity" id="Quantity" onKeyUp="multiply()" placeholder="e.g. 2" /><br>
+  	<input type="hidden" name="Price" id="Price" value="150" />
+  	Price: <input type="text" name="TOTAL" id="TOTAL" /><br><br>
+   
+  	Amount of the Subject: <input type="text" value="" name="Quantity1" id="Quantity1" onKeyUp="multiply()"/><br>
+	Subtotal: <input type="text" name="TOTAL2" id="TOTAL2" /><br><br>
+<table>
+    	<tr>
+    		<th>Latin Honors</th>
+    		<th>Discount</th>
+    	</tr>
+    	<tr>
+    		<td>Summa Cum Laude</td>
+    		<td>Php 700.00</td>
+    	</tr>
+    	<tr>
+    		<td>Magna Cum Laude</td>
+    		<td>Php 500.00</td>
+    	</tr>
+    	<tr>
+    		<td>Cum Laude</td>
+    		<td>Php 300.00</td>
+    	</tr>
+    </table><br>
+    Discount: <input type="text" value="" name="Quantity2" id="Quantity2" onKeyUp="multiply()"/><br>
+	Total: <input type="text" name="TOTAL3" id="TOTAL3" /><br><br>
+	<script>
+	  function multiply()
+{
+    a = Number(document.getElementById('Quantity').value);
+    b = Number(document.getElementById('Price').value);
+    c = a * b;
+    document.getElementById('TOTAL').value = c;
+    d = Number(document.getElementById('Quantity1').value); 
+    e = d + c;
+    document.getElementById('TOTAL2').value = e;
+    f = Number(document.getElementById('Quantity2').value);
+    g = e - f;
+    document.getElementById('TOTAL3').value = g;
+}
+
+  	</script>

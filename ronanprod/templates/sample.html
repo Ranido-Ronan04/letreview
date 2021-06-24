@@ -1,0 +1,84 @@
+
+ <p style="color:white">Product:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name='subject' id='subject' required>
+      <option value="General Education" id="sub1">General Education</option>
+      <option value="Professional Education" id="sub2">Professional Education</option>
+      <option value="Technology and Livelihood Education" id="sub3">Technology and Livelihood Education</option>
+
+    </select></br>
+
+    <br> Quantity:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="text" name="quantity" id='quantity' required></br>
+     <br> Size:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name='disc' id='disc'>
+      <option value="Summa Cum Laude" id="latin1" name="honor1">Summa Cum Laude</option>
+      <option value="Magna Cum Laude" id="latin2" name="honor2">Magna Cum Laude</option>
+      <option value="Cum Laude" id="latin3" name="honor3">Cum Laude</option>
+      <option value="None" id="latin4" name="honor4">None</option>
+    </select>
+        <p style="color:white">Price:
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <span id="totalCost" style="color:black"></span></p>
+<script>
+var subjectEl = document.querySelector('#subject');
+var quantityEl = document.querySelector('#quantity');
+var discountEl = document.querySelector('#disc');
+var totalCostEl = document.querySelector('#totalCost');
+
+
+subjectEl.addEventListener('change', calculateTotal);
+quantityEl.addEventListener('change', calculateTotal);
+discountEl.addEventListener('change', calculateTotal);
+
+var subject_amount = {};
+subject_amount['General Education'] = 1000;
+subject_amount['Professional Education'] = 1000;
+subject_amount['Technology and Livelihood Education'] = 1000;
+
+var quantity_amount = {};
+quantity_amount['1'] = 150;
+quantity_amount['2'] = 300;
+quantity_amount['3'] = 450;
+quantity_amount['4'] = 600;
+quantity_amount['5'] = 750;
+quantity_amount['6'] = 900;
+quantity_amount['7'] = 1050;
+quantity_amount['8'] = 1200;
+quantity_amount['9'] = 1350;
+quantity_amount['10'] = 1500;
+quantity_amount['11'] = 1650;
+quantity_amount['12'] = 1800;
+quantity_amount['13'] = 1950;
+quantity_amount['14'] = 2100;
+quantity_amount['15'] = 2250;
+quantity_amount['16'] = 2400;
+quantity_amount['17'] = 2550;
+quantity_amount['18'] = 2700;
+quantity_amount['19'] = 2850;
+quantity_amount['20'] = 3000;
+
+var discount_amount = {};
+discount_amount['Summa Cum Laude'] = 700;
+discount_amount['Magna Cum Laude'] = 500;
+discount_amount['Cum Laude'] = 300;
+discount_amount['None'] = 0;
+
+
+function calculateTotal() {
+
+  var unitCost = subject_amount[subjectEl.value] || 0;
+  var discountCost = discount_amount[discountEl.value] || 0;
+  var quantityCost = quantity_amount[quantityEl.value] || 0;
+  
+
+  totalCostEl.textContent = `${(unitCost + quantityCost) - discountCost}`;
+}
+</script>
+</div>

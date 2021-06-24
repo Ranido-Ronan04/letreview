@@ -1,0 +1,118 @@
+{% load static %}
+
+<html>
+<head>
+<title>Dasmariñas Online LET Review Site</title>
+<link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&family=Titan+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url('{% static 'IMAGE/book2.jpeg' %}'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;">
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Review Center</a>
+      <div class="dropdown-content">
+        <a href="ReviewCenter">Review Center</a>
+        <a href="Enrollment">Enrollment</a>
+        <a href="Paymentt">Payment</a>
+      </div>
+    </li>
+    <!-- <li><a href="reviewcenter.html">Review Center</a></li> -->
+    <li><a href="Reviewers">Reviewer</a>
+    </li>
+  </ul>
+  <center>
+    <div class="title">
+<h1>Payment Information</h1>
+</div><br><br>
+<form method="POST" action="Paymentt">
+{% csrf_token %}
+<div class="container">
+<p>Welcome Students!</p>
+<!-- <a>Date of Enrollment: <br><input type="date" name="enrollement" id="enrollement" placeholder="Complete Name"></a><br><br> -->
+<a>Place: <br><input type="text" name="place" id="place" placeholder="Location"></a><br><br>
+<a>Date of Exam: <br><input type="date" name="test" id="test" placeholder="Date of Exam"></a><br><br>
+
+<table>
+      <tr>
+        <th>Subject</th>
+        <th>Amount</th>
+      </tr>
+      <tr>
+        <td>General Education</td>
+        <td>Php 1000.00</td>
+      </tr>
+      <tr>
+        <td>Professional Education</td>
+        <td>Php 1500.00</td>
+      </tr>
+      <tr>
+        <td>Technology and Livelihood Education</td>
+        <td>Php 2000.00</td>
+      </tr>
+    </table><br>
+
+    
+
+    <a>Number of Session: <input type="text" value="" name="quantity" id="quantity" onKeyUp="multiply()" placeholder="e.g. 2" /><br></a>
+    <input type="hidden" name="amnt" id="amnt" value="150" />
+   <a> Price: <input type="text" name="total" id="total" /><br><br></a>
+   
+    <a>Amount of the Subject: <input type="text" value="" name="quantity1" id="quantity1" onKeyUp="multiply()"/><br></a>
+  <a>Subtotal: <input type="text" name="total1" id="total1" /><br><br></a>
+<table>
+      <tr>
+        <th>Latin Honors</th>
+        <th>Discount</th>
+      </tr>
+      <tr>
+        <td>Summa Cum Laude</td>
+        <td>Php 700.00</td>
+      </tr>
+      <tr>
+        <td>Magna Cum Laude</td>
+        <td>Php 500.00</td>
+      </tr>
+      <tr>
+        <td>Cum Laude</td>
+        <td>Php 300.00</td>
+      </tr>
+    </table><br>
+    <a>Discount: <input type="text" value="" name="quantity2" id="quantity2" onKeyUp="multiply()"/><br>
+  Total: <input type="text" name="total2" id="total2" /><br><br></a>
+<form>
+  <button type="submit">OK!</button><br><br>
+  {% csrf_token %}
+</form>
+</div>
+</form>
+  </center>
+</body>
+<script>
+    function multiply()
+{
+    a = Number(document.getElementById('quantity').value);
+    b = Number(document.getElementById('amnt').value);
+    c = a * b;
+    document.getElementById('total').value = c;
+    d = Number(document.getElementById('quantity1').value); 
+    e = d + c;
+    document.getElementById('total1').value = e;
+    f = Number(document.getElementById('quantity2').value);
+    g = e - f;
+    document.getElementById('total2').value = g;
+}
+
+    </script>
+</html>

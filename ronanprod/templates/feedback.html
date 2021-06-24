@@ -3,35 +3,51 @@
 <head>
 <title>Dasmariñas Online LET Review Site</title>
 <link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&family=Titan+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
    </head>
 <body style="background-image: url('{% static 'IMAGE/book4.jpeg' %}'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;">
 	<ul>
     <li><a href="firstpage.html">Home</a></li>
-    <li><a href="reviewcenter.html">Review Center</a></li>
     <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Reviewer</a>
+      <a href="javascript:void(0)" class="dropbtn">Review Center</a>
       <div class="dropdown-content">
-        <a href="reviewer.html">Professional Education</a>
-        <a href="reviewer.html">General Education</a>
-        <a href="reviewer.html">Technology and Livelihood Education</a>
+        <a href="reviewcenter.html">Review Center</a>
+        <a href="enrollment.html">Enrollment</a>
+        <a href="payment.html">Payment</a>
       </div>
+    </li>
+    <!-- <li><a href="reviewcenter.html">Review Center</a></li> -->
+    <li><a href="reviewer.html">Reviewer</a>
     </li>
     <li><a href="feedback.html">Feedback</a></li>
   </ul>
   <center>
+  <div class="title">
 <h1>Feedbacks</h1>
+</div><br><br>
+<div class="container">
 <p>Say anything what you want!</p>
 <a>Strengths</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<textarea id="strength" rows="4" cols="50" placeholder="State..."></textarea><br><br>
 <a>Weaknesses</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
-<a>Comments</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<textarea id="weakness" rows="4" cols="50" placeholder="State..."></textarea><br><br>
 <a>Suggestions</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<textarea id="suggestion" rows="4" cols="50" placeholder="State..."></textarea><br><br>
 <form>
   <button type="submit" formaction="#">Submit</button>
 </form>
+</div>
   </center>
 </body>
 </html>

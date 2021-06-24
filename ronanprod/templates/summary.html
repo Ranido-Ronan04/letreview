@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+<head>
+  <title>Dasmariñas Online LET Review Site</title>
+  <link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&family=Titan+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url('{% static 'IMAGE/book.jpg' %}'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;">
+<center>
+  <form class="form" method="POST" action="last">
+  {% csrf_token %}
+  <div class="title">
+<h1>Data Eme</h1>
+</div><br><br>
+
+<div class="container">
+<p>PAPASA KA NA!</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>School</th>
+    <th>Contact Number</th>
+    <th>Date of Exam</th>
+    <th>Payment</th>
+  </tr>
+  <tr>
+    <td>{{ parti.cname }}</td>
+    <td>{{ parti.add }}</td>
+    <td>{{ parti.num }}</td>
+    <td>{{ pymt.test }}</td>
+    <td>{{ pymt.total2 }}</td>
+    <td><a href="{% url 'update_let' pymt.id %}">Update</td>
+    <td><a href="{% url 'delete_let' pymt.id %}">Delete</td>
+  </tr>
+</table>
+
+</form>
+
+ 
+   
+
+</center>
+</body>
+</html>

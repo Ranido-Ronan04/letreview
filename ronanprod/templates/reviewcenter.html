@@ -3,38 +3,48 @@
 <head>
 <title>Dasmariñas Online LET Review Site</title>
 <link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&family=Titan+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 </head>
 <body style="background-image: url('{% static 'IMAGE/book1.jpg' %}'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;">
   <ul>
-    <li><a href="firstpage.html">Home</a></li>
-    <li><a href="reviewcenter.html">Review Center</a></li>
+    <li><a href="{% url 'home' %}">Home</a></li>
     <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Reviewer</a>
+      <a href="javascript:void(0)" class="dropbtn">Review Center</a>
       <div class="dropdown-content">
-        <a href="reviewer.html">Professional Education</a>
-        <a href="reviewer.html">General Education</a>
-        <a href="reviewer.html">Technology and Livelihood Education</a>
+        <a href="ReviewCenter">Review Center</a>
+        <a href="Enrollment">Enrollment</a>
+        <a href="Paymentt">Payment</a>
       </div>
     </li>
-    <li><a href="feedback.html">Feedback</a></li>
+    <!-- <li><a href="reviewcenter.html">Review Center</a></li> -->
+    <li><a href="Reviewers">Reviewer</a>
+    </li>
   </ul>
   <center>
+    <div class="title">
 <h1>Review Center Information</h1>
-<form method="POST" action="enrollment.html">
- 
+</div><br><br>
+<form method="POST" action="ReviewCenters">
+ <div class="container">
 <p>Welcome Students!</p>
 <a>Name: <br><input type="text" name="reviewcentername" id="reviewcentername" placeholder="Complete Name"></a><br><br>
 <a>Address: <br><input type="text" name="reviewcenteradd" id="reviewcenteradd" placeholder="Complete Address"></a><br><br>
-<!-- <a>Name: <br><input type="text" name="rname" id="rname" placeholder="Complete Name"></a><br><br>
-<a>Address: <br><input type="text" name="add" id="add" placeholder="Complete Address"></a><br><br>
-<a>Lecturer's Name: <br><input type="text" name="lname" id="lname" placeholder="Lecturer's Name"></a><br><br>
-<a>Payment: <br><input type="number" name="pay" id="pay" placeholder="Payment"></a><br><br> -->
-<!-- <a>Course: <br><input type="text" name="course" id="course" placeholder="Course"></a><br><br> -->
-<!-- <a>Schedule: <br><input type="datetime-local" name="sched" id="sched" placeholder="Schedule"></a><br><br> -->
 <form>
-  <button type="submit">Submit</button>
+  <button type="submit">Submit</button><br><br>
        {% csrf_token %}
 </form>
+</div>
   </center>
 </body>
 </html>

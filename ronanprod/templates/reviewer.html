@@ -3,74 +3,86 @@
 <head>
 <title>Dasmariñas Online LET Review Site</title>
 <link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&family=Titan+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+<!-- <style>
+        .star{
+          color: goldenrod;
+          font-size: 2.0rem;
+          padding: 0 1rem; /* space out the stars */
+        }
+        .star::before{
+          content: '\2606';    /* star outline */
+          cursor: pointer;
+        }
+        .star.rated::before{
+          /* the style for a selected star */
+          content: '\2605';  /* filled star */
+        }
+        
+        .stars{
+            counter-reset: rateme 0;   
+            font-size: 2.0rem;
+            font-weight: 900;
+        }
+        .star.rated{
+            counter-increment: rateme 1;
+        }
+        .stars::after{
+            content: counter(rateme) '/5';
+        }
+    </style> -->
 </head>
-<script>
-function myProf() {
-  var checkBox = document.getElementById("myProfEd");
-  var text = document.getElementById("text");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
 
-function myGen() {
-  var checkBox = document.getElementById("myGenEd");
-  var text = document.getElementById("text1");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-
-function myTle() {
-  var checkBox = document.getElementById("myTLE");
-  var text = document.getElementById("text2");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-</script>
 <body style="background-image: url('{% static 'IMAGE/book3.webp' %}'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
 	<ul>
-    <li><a href="firstpage.html">Home</a></li>
-    <li><a href="reviewcenter.html">Review Center</a></li>
+    <li><a href="{% url 'home' %}">Home</a></li>
     <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Reviewer</a>
+      <a href="javascript:void(0)" class="dropbtn">Review Center</a>
       <div class="dropdown-content">
-        <a href="reviewer.html">Professional Education</a>
-        <a href="reviewer.html">General Education</a>
-        <a href="reviewer.html">Technology and Livelihood Education</a>
+        <a href="ReviewCenter">Review Center</a>
+        <a href="Enrollment">Enrollment</a>
+        <a href="Paymentt">Payment</a>
       </div>
     </li>
-    <li><a href="feedback.html">Feedback</a></li>
+    <!-- <li><a href="reviewcenter.html">Review Center</a></li> -->
+    <li><a href="Reviewers">Reviewer</a>
+    </li>
   </ul>
   <center>
+    <div class="title">
 <h1>Reviewer</h1>
+</div><br><br>
+<form method="POST" action="Reviewerss">
+<div class="container">
 <p>Study and Work Hard!</p>
-<input type="radio" id="myProfEd" onclick="myProf()">
-<label for="myProfEd" style="font-size: 25px; color: red;">Professional Education</label><br>
-
-<p id="text" style="display:none">
-<a href="{% static 'PROF/PROFESSIONAL EDUCATION.pdf' %}" download>Professional Education</a><br>
-<a href="{% static 'PROF/Part 1 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 1</a><br>
-<a href="{% static 'PROF/Part 2 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 2</a><br>
-<a href="{% static 'PROF/Part 3 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 3</a><br>
-<a href="{% static 'PROF/Part 4 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 4</a><br>
-<a href="{% static 'PROF/Part 5 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 5</a><br>
-<a href="{% static 'PROF/Part 6 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 6</a><br>
-<a href="{% static 'PROF/Part 7 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 7</a><br>
-<a href="{% static 'PROF/Part 8 Professional Education pdfbooksforum.compdf' %}" download>Professional Education Part 8</a><br>
-</p>
-
-<input type="radio" id="myGenEd" onclick="myGen()">
-<label for="myGenEd" style="font-size: 25px; color: red;">General Education</label><br>
-
-<p id="text1" style="display:none">
+<table>
+        <thead>
+            <tr>
+                <th>General Education</th>
+                <th>Professional Education</th>
+                <th>Technology and Livelihood Education</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
 <a href="{% static 'GEN/Gen ed Board for Professional pdfbooksforum.com.pdf' %}" download>Gened Board for Professional</a><br>
 <a href="{% static 'GEN/Gen ed Topnotcher Blept Reviewer Vol 1 pdfbooksforum.com.pdf' %}" download>Gened Topnotcher Blept Reviewer Vol 1</a><br>
 <a href="{% static 'GEN/Part 1 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 1</a><br>
@@ -80,14 +92,21 @@ function myTle() {
 <a href="{% static 'GEN/Part 5 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 5</a><br>
 <a href="{% static 'GEN/Part 6 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 6</a><br>
 <a href="{% static 'GEN/Part 7 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 7</a><br>
-<a href="{% static 'GEN/Part 8 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 8</a><br>
-</p>
+<a href="{% static 'GEN/Part 8 General Education pdfbooksforum.com .pdf' %}" download>General Education Part 8</a><br></td>
 
-<input type="radio" id="myTLE" onclick="myTle()">
-<label for="myTLE" style="font-size: 25px; color: red;">Technology and Livelihood Education</label><br>
+<td>
+<a href="{% static 'PROF/PROFESSIONAL EDUCATION.pdf' %}" download>Professional Education</a><br>
+<a href="{% static 'PROF/Part 1 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 1</a><br>
+<a href="{% static 'PROF/Part 2 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 2</a><br>
+<a href="{% static 'PROF/Part 3 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 3</a><br>
+<a href="{% static 'PROF/Part 4 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 4</a><br>
+<a href="{% static 'PROF/Part 5 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 5</a><br>
+<a href="{% static 'PROF/Part 6 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 6</a><br>
+<a href="{% static 'PROF/Part 7 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 7</a><br>
+<a href="{% static 'PROF/Part 8 Professional Education pdfbooksforum.com.pdf' %}" download>Professional Education Part 8</a><br>
+</td>
 
-<p id="text2" style="display:none">
-<a href="{% static 'FILE/Basic Electricity.pdf' %}" download>Basic Electricity</a><br>
+<td><a href="{% static 'FILE/Basic Electricity.pdf' %}" download>Basic Electricity</a><br>
 <a href="{% static 'FILE/Computer Programming.pdf' %}" download>Computer Programming</a><br>
 <a href="{% static 'FILE/crop classification.pdf' %}" download>Crop Classification</a><br>
 <a href="{% static 'FILE/CROP PRODUCTION.pdf' %}" download>Crop Production</a><br>
@@ -110,25 +129,67 @@ function myTle() {
 <a href="{% static 'FILE/Swine Artificial Insemination.pdf' %}" download>Swine Artificial Insemination</a><br>
 <a href="{% static 'FILE/Swine Production.pdf' %}" download>Swine Production</a><br>
 <a href="{% static 'FILE/Tailoring.pdf' %}" download>Tailoring</a><br>
-<a href="{% static 'FILE/TECHNOLOGY AND LIVELIHOOD EDUCATION.pdf' %}" download>Technology and  Livelihood Education</a><br>
-</p>
-
-<!-- <a>Professional Education</a><br>
-<a>General Education</a><br>
-<a>Technology and Livelihood Education</a><br>
-<a href="{% static 'FILE/Basic Electricity.pdf' %}" download>Basic Electricity</a> -->
-<!-- <a>Strengths</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<a href="{% static 'FILE/TECHNOLOGY AND LIVELIHOOD EDUCATION.pdf' %}" download>Technology and  Livelihood Education</a><br></td>
+</tr>
+</tbody>
+</table><br><br>
+<!-- <div style="width: 50%; border-style: solid; border-color: black; background-color: lightgray; border-radius: 25px;"> -->
+<!-- <h1 style="font-size: 30px; color: red; text-shadow: 2px 2px darkgray;">Star Rating System</h1>
+    <div class="stars" data-rating="1" id="rate" name="rate">
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+    </div> -->
+<a>Strengths</a><br>
+<textarea name="strength" id="strength" rows="4" cols="50" placeholder="State..."></textarea><br><br>
 <a>Weaknesses</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
-<a>Comments</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<textarea name="weakness" id="weakness" rows="4" cols="50" placeholder="State..."></textarea><br><br>
 <a>Suggestions</a><br>
-<textarea rows="4" cols="50" placeholder="State..."></textarea><br><br>
-<form>
-  <button type="submit" formaction="#">Submit</button>
-</form> -->
+<textarea name="suggestion" id="suggestion" rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<a>Comments:</a><br>
+<textarea name="comment" id="comment" rows="4" cols="50" placeholder="State..."></textarea><br><br>
+<button type="submit">Send!</button><br><br>
+{% csrf_token %}
+</div>
+</div>
   </center>
+  <!-- <script>
+        
+        //initial setup
+        document.addEventListener('DOMContentLoaded', function(){
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(function(star){
+                star.addEventListener('click', setRating); 
+            });
+            
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            let target = stars[rating - 1];
+            target.dispatchEvent(new MouseEvent('click'));
+        });
+
+        function setRating(ev){
+            let span = ev.currentTarget;
+            let stars = document.querySelectorAll('.star');
+            let match = false;
+            let num = 0;
+            stars.forEach(function(star, index){
+                if(match){
+                    star.classList.remove('rated');
+                }else{
+                    star.classList.add('rated');
+                }
+                //are we currently looking at the span that was clicked
+                if(star === span){
+                    match = true;
+                    num = index + 1;
+                }
+            });
+            document.querySelector('.stars').setAttribute('data-rating', num);
+        }
+        
+    </script> -->
 </body>
 
 </html>

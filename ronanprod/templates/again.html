@@ -1,0 +1,33 @@
+<script>
+  function multi(value) {
+    var w, x, y, z;
+    w = 150 ;
+    x = 1000 ;
+    y = value ;
+    z = value;
+
+
+    document.getElementById('totalAmount').value = [(parseInt(w) * parseInt(y)) + (parseInt(x) * parseInt(z))] ;
+  }
+</script>
+
+
+<p>Subject:
+  <select name='subject' id='subject' onkeyup="multi(this.value);" required>
+      <option value="General Education" id="subj1">General Education</option>
+      <option value="Professional Education" id="subj2">Professional Education</option>
+      <option value="Technology and Livelihood Education" id="subj3">Technology and Livelihood Education</option>
+  </select>
+</p>
+<p>Number of Session:
+  <input type="text" name="session" id="session" onkeyup="multi(this.value);" required>
+</p>
+<p>Discount: 
+  <select name='discount' id='discount' onkeyup="multi(this.value);">
+      <option value="Summa Cum Laude" id="honor1" name="honor1" >Summa Cum Laude</option>
+      <option value="Magna Cum Laude" id="honor2" name="honor2" >Magna Cum Laude</option>
+      <option value="Cum Laude" id="honor3" name="honor3" >Cum Laude</option>
+      <option value="None" id="honor4" name="honor4" >None</option>
+  </select>
+</p>
+<p>Total:<span id="totalAmount"></span></p>

@@ -3,43 +3,57 @@
 <head>
 <title>Dasmariñas Online LET Review Site</title>
 <link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&family=Titan+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 </head>
 <body style="background-image: url('{% static 'IMAGE/book2.jpeg' %}'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;">
   <ul>
-    <li><a href="firstpage.html">Home</a></li>
-    <li><a href="reviewcenter.html">Review Center</a></li>
+    <li><a href="{% url 'home' %}">Home</a></li>
     <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Reviewer</a>
+      <a href="javascript:void(0)" class="dropbtn">Review Center</a>
       <div class="dropdown-content">
-        <a href="reviewer.html">Professional Education</a>
-        <a href="reviewer.html">General Education</a>
-        <a href="reviewer.html">Technology and Livelihood Education</a>
+        <a href="ReviewCenter">Review Center</a>
+        <a href="Enrollment">Enrollment</a>
+        <a href="Paymentt">Payment</a>
       </div>
     </li>
-    <li><a href="feedback.html">Feedback</a></li>
+    <!-- <li><a href="reviewcenter.html">Review Center</a></li> -->
+    <li><a href="Reviewers">Reviewer</a>
+    </li>
   </ul>
   <center>
-<h1>Review Center Information</h1>
-<form method="POST" action="feedback.html">
+    <div class="title">
+<h1>Enrollment Information</h1>
+</div><br><br>
 
+<div class="container">
 <p>Welcome Students!</p>
-<a>Date of Enrollment: <br><input type="date" name="enrollement" id="enrollement" placeholder="Complete Name"></a><br><br>
+<form method="POST" action="Enrollmentt">
+  {% csrf_token %}
+<a>Date of Enrollment: <br><input type="date" name="enrollment" id="enrollment" placeholder="Complete Name"></a><br><br>
 
-<form>
-  <a>Subject: <br>
-  <input type="checkbox" id="sub1" name="sub1" value="profed">
-  <label for="sub1"> Professional Education</label><br>
-  <input type="checkbox" id="sub2" name="sub2" value="gened">
-  <label for="sub2"> General Education</label><br>
-  <input type="checkbox" id="sub3" name="sub3" value="tle">
-  <label for="sub3"> Technology and Livelihood Education</label><br><br>
-  </a>
-</form>
+  <a>Subject:<br>
+    <select name='sub' id='sub'>
+      <option value="Professional Education" id="prof" name="prof">Professional Education</option>
+      <option value="General Education" id="gen" name="gen">General Education</option>
+      <option value="Technology and Livelihood Education" id="tech" name="tech">Technology and Livelihood Education</option>
+    </select>
+  </a><br><br>
+
 <a>Number of Session: <br><input type="number" name="session" id="session" placeholder="Number of Session"></a><br><br>
-<a>Name of Lecturer: <br><input type="text" name="lec" id="lec" placeholder="Name of Lecturer"></a><br><br>
-<form>
-  <label for="sched">Schedule:</label>
-  <select name="sched" id="sched">
+<!-- <a>Name of Lecturer: <br><input type="text" name="lec" id="lec" placeholder="Name of Lecturer"></a><br><br> -->
+  <a for="sched" id="sched">Schedule:</a><br>
+  <select name="sched">
     <option value="monday">Monday</option>
     <option value="tuesday">Tuesday</option>
     <option value="wednesday">Wednesday</option>
@@ -49,15 +63,18 @@
     <option value="sunday">Sunday</option>
   </select>
   <br><br>
-</form>
 
-<a>Payment: <br><input type="text" name="payment" id="payment" placeholder="Amount"></a><br><br>
+  <button type="submit">Submit</button>
+        
+<!-- <a>Payment: <br><input type="text" name="payment" id="payment" placeholder="Amount"></a><br><br>
 
 <a>Place: <br><input type="text" name="place" id="place" placeholder="Location"></a><br><br>
 <a>Date of Exam: <br><input type="date" name="test" id="test" placeholder="Name of Lecturer"></a><br><br>
 <form>
   <button type="submit">Submit</button>
         {% csrf_token %}
+</form> -->
+</div>
 </form>
   </center>
 </body>

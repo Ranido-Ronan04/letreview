@@ -1,9 +1,9 @@
 {% load static %}
 <html>
 <head>
-<title>Dasmariñas Online LET Review Site</title>
-<link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Dasmariñas Online LET Review Site</title>
+  <link rel="stylesheet"  type="text/css" href="{% static 'CSS/general.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,36 +17,46 @@
 <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 </head>
 <body style="background-image: url('{% static 'IMAGE/book.jpg' %}'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;">
-
-  <ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Review Center</a>
-      <div class="dropdown-content">
-        <a href="ReviewCenter">Review Center</a>
-        <a href="Enrollment">Enrollment</a>
-        <a href="Paymentt">Payment</a>
-      </div>
-    </li>
-    <!-- <li><a href="reviewcenter.html">Review Center</a></li> -->
-    <li><a href="Reviewers">Reviewer</a>
-    </li>
-  </ul>
 <center>
   <div class="title">
-<h1>LET Review</h1>
+<h1>Data Eme</h1>
 </div><br><br>
-<form method="POST" action="Participants">
+<form method="POST" action="last">
 <div class="container">
-<p>Welcome Participants!</p>
-<a>Name: <br><input type="text" name="cname" id="cname" placeholder="Complete Name"></a><br><br>
-<a>Address: <br><input type="text" name="add" id="add" placeholder="Complete Address"></a><br><br>
-<a>Contact: <br><input type="number" name="num" id="num" placeholder="Contact Number"></a><br><br>
-<a>School: <br><input type="text" name="school" id="school" placeholder="Name of your school"></a><br><br>
-<form>
+<p>PAPASA KA NA!</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>School</th>
+    <th>Contact Number</th>
+    <th>Review Center</th>
+    <th>Location</th>
+    <th>Date of Exam</th>
+    <th>Payment</th>
+  </tr>
+  <tr>
+    <td>{{ parti.cname }}</td>
+    <td>{{ parti.add }}</td>
+    <td>{{ parti.num }}</td>
+    <td>{{ revcen.reviewcentername }}</td>
+    <td>{{ revcen.reviewcenteradd }}</td>
+    <td>{{ pymt.test }}</td>
+    <td>{{ pymt.total2 }}</td>
+  </tr>
+</table>
+<!-- <p><span>Full Name:</span>{{ parti.cname }}</p>
+<p><span>School:</span>{{ parti.add }}</p>
+<p><span>Contact:</span>{{ parti.num }}</p>
+<p><span>Name of Review Center:</span>{{ revcen.reviewcentername }}</p>
+<p><span>Address of Review Center:</span>{{ revcen.reviewcenteradd }}</p>
+<p><span>Date of Enrollment:</span>{{ enr.enrollment }}</p>
+<p><span>Schedule:</span>{{ pymt.test }}</p>
+<p><span>Payment:</span>{{ pymt.total2 }}</p>
+ -->
+
 <br><button type="submit">Submit</button><br><br>
  {% csrf_token %}
-</form></a>
 </div>
 </form>
 </center>
