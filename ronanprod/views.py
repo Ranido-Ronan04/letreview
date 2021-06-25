@@ -17,8 +17,8 @@ def Participants(request):
 
 	return render(request,'reviewcenter.html')
 
-# def Participantts(request):
-# 	return render(request,'reviewcenter.html')
+def revcen(request):
+	return render(request,'reviewcenter.html')
 
 def ReviewCenters(request):
 	center = Reviewcenter.objects.create(
@@ -27,7 +27,7 @@ def ReviewCenters(request):
 		)
 	return render(request, 'enrollment.html')
 
-def ReviewCenter(request):
+def enrol(request):
 	return render(request, 'enrollment.html')
 
 
@@ -41,7 +41,7 @@ def Enrollmentt(request):
 
 	return render(request, 'payment.html')
 
-def Enrollment(request):
+def pay(request):
 	return render(request, 'payment.html')
 
 def Paymentt(request):
@@ -59,8 +59,8 @@ def Paymentt(request):
 
 	return render(request, 'reviewer.html')
 	
-# def Paymentt(request):
-# 	return render(request, 'payment.html')
+def rev(request):
+	return render(request, 'reviewer.html')
 
 def Reviewerss(request):
 
